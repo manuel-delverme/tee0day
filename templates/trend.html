@@ -3,10 +3,14 @@
 
 {% block content %}
     <div>
-        {% for row in object_list %}
-            <tr>
-                <td>{{ row }}</td>
-            </tr>
+        {% for topic_keyword, topic_data in trends.items %}
+            TOPIC: {{ topic_keyword }}
+            {% for k, v in topic_data.items %}
+                <tr>
+                    <td>{{ k }}</td>
+                    <td>{{ v }}</td>
+                </tr>
+            {% endfor %}
         {% endfor %}
     {% csrf_token %}
     </div>
